@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+
+        body{
+            min-height:100vh;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            flex-direction:column;
+            gap:15px;
+            /* background-color: black; */
+            background-image: linear-gradient(to right,yellow,red);
+
+        }
+
+        section{
+            width:200px;
+            height:200px;
+            background-color:red;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            font-size:30px;
+            border-radius:50%;
+            background-image: linear-gradient(to right,red, yellow);
+            font-weight: bold;
+        }
+
+        div{
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            gap:15px;
+        }
+
+        button{
+            height:50px;
+            padding:10px;
+            border-radius: 50%;
+            background-image: linear-gradient(to right,yellow,red);
+            border:none;
+            font-size:20px;
+            font-weight:600;
+        }
+
+        
+    </style>
+</head>
+<body>
+
+    <section></section>
+    <div>
+
+        <button type="button">START</button>
+        <button type="button">STOP</button>
+        <button type="button">RESET</button>
+    </div>
+    <script>
+        // let s1 = setTimeout(()=>{
+        //     alert(`Welcome Vaibhav`)
+        // },5000)
+
+        // let s2 = setInterval(()=>{
+        //     alert(`You Have Been Hacked`)
+        //     alert(`your acc has been credited 10000`)
+        // },5000)
+
+        let sec = document.querySelector("section")
+        let div = document.querySelector("div")
+
+    //     let s1 = setTimeout(()=>{
+    //         div.style.cssText = "background-color:black;transition:all 5s ease-in-out;width:100%;color:white"
+    // },2000)
+
+    //     let btn1 = document.querySelector("button")
+    //     btn1.addEventListener("click",()=>{
+    //         clearTimeout(s1)
+    //     })
+
+        let count = 0;
+        sec.innerHTML = count;
+
+        // let s2 = setInterval(()=>{
+        //    div.innerHTML = count++
+        // },1000)
+
+        
+
+        // let btn2 = document.querySelectorAll("button")[1]
+        // console.log(btn2)
+        // btn2.addEventListener("click",()=>{
+        //     clearInterval(b)
+        //     // div.innerHTML = 
+        // })
+
+
+        // let btn3 = document.querySelectorAll("button")[2]
+        // console.log(btn3)
+        // btn3.addEventListener("click",()=>{
+        //     div.innerHTML = 0
+        // })
+        
+        
+        // let btn4 = document.querySelectorAll("button")[3]
+        // console.log(btn4)
+        // btn4.addEventListener("click",()=>{
+
+        //     let a = 0
+        //      b  = setInterval(()=>{
+        //    div.innerHTML = a++
+        // },1000)
+
+
+        // })
+
+
+        let timer = 0;
+        let b1;
+        let btn = document.querySelectorAll("button")
+        
+
+        btn[0].addEventListener("click",()=>{
+            b1 = setInterval(()=>{
+                if (timer==0){
+                    count = sec.innerHTML
+                    timer = 1;
+                }
+                sec.innerHTML = count++
+            },1000  )
+        })
+
+        btn[1].addEventListener("click",()=>{
+            if(timer== 1){
+                clearInterval(b1);
+                timer = 0;
+            }
+        })
+
+        btn[2].addEventListener("click",()=>{
+            if (timer==0){
+                count = 0;
+                sec.innerHTML = count;
+            }
+        })
+    </script>
+</body>
+</html>
